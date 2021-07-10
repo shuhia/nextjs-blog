@@ -10,9 +10,9 @@ const Slideshow = () => {
   const [slides, setSlides] = useState([]);
 
   function addDiceSlides() {
-    addSlide("images/dice-1.jpg");
-    addSlide("images/dice-2.jpg");
-    addSlide("images/dice-3.jpg");
+    addSlide("/images/dice-1.jpg");
+    addSlide("/images/dice-2.jpg");
+    addSlide("/images/dice-3.jpg");
   }
 
   function addSlide(src) {

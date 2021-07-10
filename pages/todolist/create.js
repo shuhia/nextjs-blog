@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Layout from "../../components/todolist/Layout";
 
 export default function CreateTodoWrapper(props) {
   class CreateTodo extends Component {
@@ -141,5 +142,9 @@ export default function CreateTodoWrapper(props) {
       );
     }
   }
-  return <CreateTodo></CreateTodo>;
+  return (
+    <Layout>
+      <CreateTodo></CreateTodo>
+    </Layout>
+  );
 }

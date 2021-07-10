@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import router from "next/router";
 import { useRouter } from "next/router";
+import Layout from "../../../components/todolist/Layout";
 export default function EditTodoWrapper(props) {
   const router = useRouter();
 
@@ -83,7 +83,7 @@ export default function EditTodoWrapper(props) {
           obj
         )
         .then((res) => console.log(res.data));
-      router.push("/todos");
+      router.push("/todolist");
     }
 
     render() {
@@ -175,5 +175,9 @@ export default function EditTodoWrapper(props) {
     }
   }
 
-  return <EditTodo></EditTodo>;
+  return (
+    <Layout>
+      <EditTodo></EditTodo>
+    </Layout>
+  );
 }

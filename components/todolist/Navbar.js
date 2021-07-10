@@ -7,14 +7,10 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="" target="_blank"></a>
-        <CustomLink to="/todolist/todos" className="navbar-brand">
-          MERN-Stack Todo App
-        </CustomLink>
         <div className="collpase nav-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-              <CustomLink to="/todolist/todos" className="nav-link">
+              <CustomLink to="/todolist" className="nav-link">
                 Todos
               </CustomLink>
             </li>
