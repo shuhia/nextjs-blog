@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import navStyles from "../styles/Nav.module.scss";
+import navStyles from "../../styles/Nav.module.scss";
 import Link from "next/link";
 
 const Nav = () => {
@@ -39,6 +39,9 @@ const Nav = () => {
           </li>
           <li>
             <Link href="/todolist">todolist</Link>
+          </li>
+          <li>
+            <Link href="/slideshow">slideshow</Link>
           </li>
           {links}
         </ul>
