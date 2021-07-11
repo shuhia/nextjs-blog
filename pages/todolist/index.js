@@ -4,22 +4,35 @@ import axios from "axios";
 import Layout from "../../components/todolist/Layout";
 import Head from "next/head";
 
-const Todo = (props) => (
-  <tr>
-    <td className={props.todo.todo_completed ? "completed" : ""}>
-      {props.todo.todo_description}
-    </td>
-    <td className={props.todo.todo_completed ? "completed" : ""}>
-      {props.todo.todo_responsible}
-    </td>
-    <td className={props.todo.todo_completed ? "completed" : ""}>
-      {props.todo.todo_priority}
-    </td>
-    <td>
-      <Link to={"todolist/edit/" + props.todo._id}>Edit</Link>
-    </td>
-  </tr>
-);
+const TodoColumn = (props) => {
+  const { type, completed } = props;
+  return <td className={completed ? "completed" : ""}>{type}</td>;
+};
+
+const Todo = (props) => {
+  const todo = props.todo;
+  const { todo_completed, todo_description, todo_responsible, todo_priority } =
+    todo;
+  return (
+    <tr>
+      <TodoColumn
+        type={todo_description}
+        completed={todo_completed}
+      ></TodoColumn>
+      <TodoColumn
+        type={todo_responsible}
+        completed={todo_completed}
+      ></TodoColumn>
+      <TodoColumn
+        type={todo_description}
+        completed={todo_completed}
+      ></TodoColumn>
+      <td>
+        <Link to={"todolist/edit/" + props.todo._id}>Edit</Link>
+      </td>
+    </tr>
+  );
+};
 
 const TodoListWrapper = (props) => {
   const [todos, setTodos] = useState([]);
@@ -58,6 +71,7 @@ const TodoListWrapper = (props) => {
           <thead>
             <tr>
               <th>Description</th>
+
               <th>Responsible</th>
               <th>Priority</th>
               <th>Actions</th>
