@@ -1,4 +1,17 @@
 .todolist {
+  $colors: (
+    primary: blue,
+    accent: lightyellow,
+  );
+
+  @function color($color-name) {
+    @return map-get($colors, color-name);
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
+
   .container {
     min-height: 100%;
     padding: 0 0.5rem;

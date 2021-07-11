@@ -26,6 +26,7 @@
 
 .container {
   position: sticky;
+  width: 100%;
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
   top: 0;
   z-index: 100;
