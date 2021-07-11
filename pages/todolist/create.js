@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Layout from "../../components/todolist/Layout";
+import UseTodosContext from "../../contexts/UseTodosContext";
 
 export default function CreateTodoWrapper(props) {
+  const { updateTodos } = UseTodosContext();
   class CreateTodo extends Component {
     constructor(props) {
       super(props);
@@ -59,7 +61,8 @@ export default function CreateTodoWrapper(props) {
           "https://webhooks.mongodb-realm.com/api/client/v2.0/app/todo-ivlyi/service/Todo/incoming_webhook/add",
           newTodo
         )
-        .then((res) => console.log(res.data));
+        .then((res) => console.log(res.data))
+        .then(() => updateTodos());
 
       this.setState({
         todo_description: "",

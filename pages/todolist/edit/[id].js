@@ -3,10 +3,13 @@ import axios from "axios";
 
 import { useRouter } from "next/router";
 import Layout from "../../../components/todolist/Layout";
+import { useContext } from "react";
+import UseTodosContext from "../../../contexts/UseTodosContext";
 export default function EditTodoWrapper(props) {
   const router = useRouter();
-
+  const todoContext = UseTodosContext();
   const id = router.query.id;
+  const { updateTodos } = todoContext;
 
   class EditTodo extends Component {
     constructor(props) {
@@ -77,12 +80,21 @@ export default function EditTodoWrapper(props) {
         todo_priority: this.state.todo_priority,
         todo_completed: this.state.todo_completed,
       };
+      const newTodo = {
+        _id: id,
+        todo_description: this.state.todo_description,
+        todo_responsible: this.state.todo_responsible,
+        todo_priority: this.state.todo_priority,
+        todo_completed: this.state.todo_completed,
+      };
       axios
         .post(
           "https://webhooks.mongodb-realm.com/api/client/v2.0/app/todo-ivlyi/service/Todo/incoming_webhook/update",
           obj
         )
-        .then((res) => console.log(res.data));
+        .then((res) => console.log(res.data))
+        .then(() => updateTodos());
+
       router.push("/todolist");
     }
 

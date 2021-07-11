@@ -10,6 +10,7 @@ const Todo = (props) => {
   const todo = props.todo;
   const { todo_completed, todo_description, todo_responsible, todo_priority } =
     todo;
+
   return (
     <tr>
       <TodoColumn
@@ -20,8 +21,8 @@ const Todo = (props) => {
         type={todo_responsible}
         completed={todo_completed}
       ></TodoColumn>
-      <TodoColumn type={"Status"} completed={todo_completed}></TodoColumn>
       <TodoColumn type={todo_priority} completed={todo_completed}></TodoColumn>
+      <TodoColumn type={todo_completed} completed={todo_completed}></TodoColumn>
       <td>
         <Link to={"todolist/edit/" + props.todo._id}>Edit</Link>
       </td>

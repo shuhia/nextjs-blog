@@ -4,11 +4,14 @@ import "../styles/Todolist.scss";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 import Layout from "../components/main/layout";
+import TodosState from "../contexts/TodosState";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <TodosState>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </TodosState>
   );
 }
