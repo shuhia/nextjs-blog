@@ -12,7 +12,6 @@ const Slide = ({ src, id }) => {
         justifyContent: "center",
       }}
     >
-      <div className="numbertext">{id}</div>
       <Image src={src} width="500%" height="500%"></Image>
       <div className={styles.text}>Caption {id}</div>
     </div>

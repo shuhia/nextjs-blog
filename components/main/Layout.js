@@ -3,8 +3,9 @@ import Image from "next/image";
 import styles from "../../styles/Layout.module.css";
 import utilStyles from "../../styles/utils.module.css";
 import Link from "next/link";
-import Nav from "./Nav";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const name = "Alex On";
 export const siteTitle = "Next.js Sample Website";
@@ -12,33 +13,33 @@ export const siteTitle = "Next.js Sample Website";
 export default function Layout({ children, home }) {
   return (
     <div className={styles.body}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Learn how to build a personal website using Next.js"
+        />
+        <meta
+          property="og:image"
+          content={`https://og-image.vercel.app/${encodeURI(
+            siteTitle
+          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+        />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+      </Head>
       <div className={styles.background}>
-        <Nav></Nav>
-
+        <Navbar></Navbar>
+        
         <div className={styles.container}>
-          <Head>
-            <link rel="icon" href="/favicon.ico" />
-            <meta
-              name="description"
-              content="Learn how to build a personal website using Next.js"
-            />
-            <meta
-              property="og:image"
-              content={`https://og-image.vercel.app/${encodeURI(
-                siteTitle
-              )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-            />
-            <meta name="og:title" content={siteTitle} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-            />
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            />
-          </Head>
           <header className={styles.header}>
             {home ? (
               <>
