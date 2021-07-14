@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Page.module.css";
+import styles from "../../styles/Page.module.scss";
 
 const Page = ({ children, title }) => {
   return (
