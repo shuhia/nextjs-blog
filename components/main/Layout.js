@@ -38,7 +38,7 @@ export default function Layout({ children, home }) {
       </Head>
       <div className={styles.background}>
         <Navbar></Navbar>
-        
+
         <div className={styles.container}>
           <header className={styles.header}>
             {home ? (
