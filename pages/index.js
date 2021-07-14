@@ -1,7 +1,8 @@
 import React from "react";
+import Page from "../components/main/Page";
 
-function index() {
-  return <div></div>;
+function Home() {
+  return <Page title="Home"></Page>;
 }
 
-export default index;
+export default Home;
