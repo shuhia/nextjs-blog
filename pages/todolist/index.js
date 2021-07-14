@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Todolist from "../../components/todolist/TodoList";
 import axios from "axios";
+import Todolist from "../../components/todolist/TodoList";
 
-const Home = () => {
+const todolist = () => {
   return (
     <>
       <Todolist></Todolist>
@@ -10,4 +10,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default todolist;

@@ -8,7 +8,7 @@ import Header from "./Header";
 
 export const siteTitle = "Next.js Sample Website";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, pageName }) {
   return (
     <div className={styles.body}>
       <Head>
@@ -36,10 +36,9 @@ export default function Layout({ children, home }) {
       </Head>
       <div className={styles.background}>
         <Navbar></Navbar>
-
         <div className={styles.container}>
-          
-          <main>{children}</main>
+          <h1 className={styles.title}>{pageName}</h1>
+          <>{children}</>
           {!home && (
             <div className={styles.backToHome}>
               <Link href="/">
